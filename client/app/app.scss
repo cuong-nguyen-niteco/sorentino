@@ -1,0 +1,45 @@
+$icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap/";
+@import '../bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap';
+$fa-font-path: "../bower_components/font-awesome/fonts";
+@import '../bower_components/font-awesome/scss/font-awesome';
+
+/**
+ * App-wide Styles
+ */
+
+.browserupgrade {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+// Component styles are injected through grunt
+/* inject:scss */
+@import 'fonts';
+@import 'vars';
+@import 'main/spotlight';
+@import 'main/main';
+@import '../components/footer/footer';
+@import '../components/navbar/navbar';
+/* endinject */
+
+.icon--circle {
+  display:inline-block;
+  padding:0.55em;
+  border-width:2px;
+  border-style:solid;
+  border-radius:100%;
+  margin-right:0.5em;
+  &:hover{
+    text-decoration:none;
+  }
+  &:before {
+    display:block;
+    text-align:center;
+    width:1em;
+    height:1em;
+    line-height:1em;
+    font-size:0.625em;
+    cursor:pointer;
+  }
+}

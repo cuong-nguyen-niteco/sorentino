@@ -1,0 +1,31 @@
+.container
+  .row
+    .nav-bar__first-line
+      .nav-bar__first-line__logo.col-xs-9
+        .nav-bar__first-line__logo__img
+          a(href="/")
+            img(src="http://placehold.it/300x300" alt="")
+        h2.nav-bar__first-line__logo__name Sorentino
+        .nav-bar__first-line__logo__menu
+          ul
+            li
+              a(href="/subscribe")
+                span(ng-class="{'nav-bar--active': isActive('home')}") Home
+            li
+              a(href="/tutorials")
+                span(ng-class="{'nav-bar--active': isActive('aboutUs')}") About Us
+            li
+              a(href="/brands")
+                span(ng-class="{'nav-bar--active': isActive('contactUs')}") Contact Us
+      h2.nav-bar__first-line__right-logo.col-xs-3 Sorentino
+    .nav-bar__second-line
+      ul
+        li
+          a(href="/subscribe")
+            span(ng-class="{'nav-bar--active': isActive('home')}") Home
+        li
+          a(href="/tutorials")
+            span(ng-class="{'nav-bar--active': isActive('aboutUs')}") About Us
+        li
+          a(href="/brands")
+            span(ng-class="{'nav-bar--active': isActive('contactUs')}") Contact Us

@@ -1,0 +1,36 @@
+@font-face {
+  font-family: 'Avenir';
+  src: url('/assets/fonts/Avenir.woff');
+}
+
+@font-face {
+  font-family: 'Avenir Black';
+  src: url('/assets/fonts/AvenirBlack.woff');
+}
+
+@font-face {
+  font-family: 'Bembo';
+  src: url('/assets/fonts/Bembo.woff');
+}
+
+@font-face {
+  font-family: 'Mulberry Serif';
+  src: url('/assets/fonts/Mulberry-se.woff');
+}
+
+@font-face {
+  font-family: 'Mulberry Sans-Serif';
+  src: url('/assets/fonts/Mulberry-sa.woff');
+}
+
+@font-face {
+  font-family: 'Bodoni';
+  src: url('/assets/fonts/Mulberry-sa.woff');
+}
+
+$font-avenir: "Avenir", Helvetica, Arial, serif;
+$font-avenir-black: "Avenir Black", Helvetica, Arial, serif;
+$font-bembo: "Bembo", Helvetica, Arial, sans-serif;
+$font-mulberry-se: "Mulberry Serif", Helvetica, Arial, serif;
+$font-mulberry-sa: "Mulberry Sans-Serif", Helvetica, Arial, sans-serif;
+$font-bodoni: "Bodoni", Helvetica, Arial, sans-serif;

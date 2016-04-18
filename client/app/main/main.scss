@@ -1,0 +1,82 @@
+.main {
+  min-height:1000px;
+  &__header {
+    padding: 10px 0;
+    text-align: center;
+    &__title {
+
+    }
+    &__description{
+      font-size: 12px;
+    }
+  }
+
+  &__content {
+    border-top: 1px solid black;
+    margin: 0 15px;
+
+    &__header {
+      display: inline-block;
+      width: 150px;
+      border: 1px solid black;
+      padding: 5px;
+      color: black;
+      font-family: $font-avenir-black;
+
+      h6 {
+        margin: 0;
+      }
+
+      i {
+        font-size: 14px;
+        float: right;
+      }
+    }
+
+    &__grid {
+      a {
+        color: black;
+      }
+      &__item {
+        position: relative;
+
+        &:hover {
+          border: 3px solid black;
+          img {
+            opacity: 0.5;
+          }
+          .main__content__grid__item__info {
+            display: inline-block;
+          }
+        }
+
+        img {
+          width: 100%;
+          height: auto;
+          //transition: opacity 0.3s ease;
+        }
+
+        &__info {
+          position: absolute;
+          display: none;
+          top: 25px;
+          left: 50px;
+          font-family: $font-bembo;
+          &__title {
+            font-family: $font-avenir-black;
+          }
+
+          &__description {
+
+          }
+
+          &__price {
+
+          }
+        }
+      }
+
+    }
+
+  }
+}

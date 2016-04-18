@@ -1,0 +1,17 @@
+include ./spotlight.jade
+.main
+  .main__header
+    h2.main__header__title My Bags
+    .main__header__description What's your style? Find your perfect bag from our selection of shoulder bags, satchels, totes and more.
+  .main__content
+    a(href="#")
+      h6.main__content__header Sort By
+        i.fa.fa-caret-down(aria-hidden="true")
+    .main__content__grid
+      a(href="#")
+        .main__content__grid__item.col-xs-4(ng-repeat="item in $ctrl.items track by $index")
+          img(src="{{item}}" alt="")
+          .main__content__grid__item__info
+            h5.main__content__grid__item__info__title Chester
+            .main__content__grid__item__info__description Burgundy Texual Goat
+            .main__content__grid__item__info__price $1000

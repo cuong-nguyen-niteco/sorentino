@@ -1,0 +1,17 @@
+footer.footer {
+  text-align: center;
+  padding: 15px 0;
+  margin-top: 70px;
+  border-top: 1px solid #E5E5E5;
+  background: black;
+  color: white;
+  font-family: $font-bodoni;
+  font-size: 12px;
+  a {
+    font-weight: bold;
+    color: white;
+    &:hover {
+      color: white;
+    }
+  }
+}
