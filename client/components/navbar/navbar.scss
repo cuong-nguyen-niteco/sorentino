@@ -60,7 +60,9 @@
       display: inline-block;
     }
     .nav-bar__first-line__right-logo {
-      display: inline-block;
+      @media (min-width: $screen-tablet) {
+        display: inline-block;
+      }
     }
   }
 
@@ -102,6 +104,7 @@
           li {
             display: inline-block;
             font-family: $font-avenir-black;
+            //text-transform: uppercase;
             font-size: 14px;
             line-height: 14px;
             margin-right: 30px;

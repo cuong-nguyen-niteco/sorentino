@@ -5,10 +5,18 @@
     width: 100%;
     position: relative;
     overflow: hidden;
-    height: $spotlight-height;
+    height: $spotlight-height/3;
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
+
+    @media (min-width: $screen-tablet) {
+      height: $spotlight-height/2
+    }
+
+    @media (min-width: $screen-desktop) {
+      height: $spotlight-height
+    }
 
     &__content {
     }

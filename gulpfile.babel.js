@@ -300,7 +300,7 @@ gulp.task('clean:tmp', () => del(['.tmp/**/*'], {dot: true}));
 
 gulp.task('start:client', cb => {
     whenServerReady(() => {
-        open('http://localhost:' + config.port);
+        // open('http://localhost:' + config.port);
         cb();
     });
 });
@@ -529,12 +529,12 @@ gulp.task('build:images', () => {
             progressive: true,
             interlaced: true
         }))
-        .pipe(plugins.rev())
-        .pipe(gulp.dest(`${paths.dist}/${clientPath}/assets/images`))
-        .pipe(plugins.rev.manifest(`${paths.dist}/${clientPath}/assets/rev-manifest.json`, {
-            base: `${paths.dist}/${clientPath}/assets`,
-            merge: true
-        }))
+        // .pipe(plugins.rev())
+        // .pipe(gulp.dest(`${paths.dist}/${clientPath}/assets/images`))
+        // .pipe(plugins.rev.manifest(`${paths.dist}/${clientPath}/assets/rev-manifest.json`, {
+        //     base: `${paths.dist}/${clientPath}/assets`,
+        //     merge: true
+        // }))
         .pipe(gulp.dest(`${paths.dist}/${clientPath}/assets`));
 });
 

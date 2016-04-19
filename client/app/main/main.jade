@@ -9,7 +9,7 @@ include ./spotlight.jade
         i.fa.fa-caret-down(aria-hidden="true")
     .main__content__grid
       a(href="#")
-        .main__content__grid__item.col-xs-4(ng-repeat="item in $ctrl.items track by $index")
+        .main__content__grid__item.col-sm-4.col-md-3(ng-repeat="item in $ctrl.items track by $index")
           img(src="{{item}}" alt="")
           .main__content__grid__item__info
             h5.main__content__grid__item__info__title Chester
