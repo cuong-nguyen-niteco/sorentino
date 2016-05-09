@@ -42,11 +42,14 @@ const paths = {
           `${serverPath}/**/!(*.spec|*.integration).js`,
           `!${serverPath}/config/local.env.sample.js`
         ],
-        json: [`${serverPath}/**/*.json`],
+        json: [
+                `${serverPath}/*.json`
+              ],
         test: {
           integration: [`${serverPath}/**/*.integration.js`, 'mocha.global.js'],
           unit: [`${serverPath}/**/*.spec.js`, 'mocha.global.js']
-        }
+        },
+        resources: `${serverPath}/resources/**/*.json`
     },
     karma: 'karma.conf.js',
     dist: 'dist'
@@ -455,6 +458,7 @@ gulp.task('build', cb => {
             'copy:fonts',
             'copy:assets',
             'copy:server',
+            'copy:resources',
             'transpile:server',
             'build:client'
         ],
@@ -564,6 +568,11 @@ gulp.task('copy:server', () => {
         '.bowerrc'
     ], {cwdbase: true})
         .pipe(gulp.dest(paths.dist));
+});
+
+gulp.task('copy:resources', () => {
+  return gulp.src([paths.server.resources])
+    .pipe(gulp.dest(`${paths.dist}/${serverPath}/resources`));
 });
 
 gulp.task('coverage:pre', () => {

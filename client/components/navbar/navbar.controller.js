@@ -1,17 +1,26 @@
 'use strict';
 
 class NavbarController {
-  //start-non-standard
-  menu = [{
-    'title': 'Home',
-    'state': 'main'
-  }];
+  constructor($http) {
+    this.$http = $http;
+    this.menu = [];
+  }
 
-  isCollapsed = true;
-  //end-non-standard
+  $onInit() {
+    this.$http.get('/api/constant/menu').then(response => {
+      this.menu = response.data.menu;
+      this.$http.get('/api/constant/collection').then(response => {
+        for(let i=0; i<this.menu.length; i++) {
+          if (this.menu[i].name.toLowerCase() === "collections") {
+            this.menu[i].items = response.data.collections;
+            break;
+          }
+        }
+      });
+    });
 
-  constructor() {
-    }
+
+  }
 }
 
 angular.module('sorentinoApp')

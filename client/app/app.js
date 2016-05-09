@@ -5,7 +5,8 @@ angular.module('sorentinoApp', [
   'ngCookies',
   'ngResource',
   'ngSanitize',
-  'ui.router'
+  'ui.router',
+  'jkuri.gallery'
 ])
   .config(function($urlRouterProvider, $locationProvider, $stateProvider) {
     $urlRouterProvider
@@ -14,11 +15,21 @@ angular.module('sorentinoApp', [
     $stateProvider
       .state('main', {
         url: '/',
-        template: '<main></main>'
+        templateUrl: 'app/main/main.html',
+        controller: 'MainController',
+        controllerAs: 'main'
       })
       .state('product', {
-        url: '/product',
-        template: '<product></product>'
+        url: '/product/:id',
+        templateUrl: 'app/product/product.html',
+        controller: 'ProductController',
+        controllerAs: 'prodCtrl'
+      })
+      .state('collection', {
+        url: '/collection/:id',
+        templateUrl: 'app/main/main.html',
+        controller: 'MainController',
+        controllerAs: 'main'
       })
     ;
 

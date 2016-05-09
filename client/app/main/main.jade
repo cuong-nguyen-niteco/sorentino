@@ -1,17 +1,23 @@
 include ./spotlight.jade
 .main
   .main__header
-    h2.main__header__title My Bags
+    h2.main__header__title {{main.collection.name}}
     .main__header__description What's your style? Find your perfect bag from our selection of shoulder bags, satchels, totes and more.
   .main__content
-    a(href="#")
-      h6.main__content__header Sort By
+    a(href="#" ng-click="main.showHideSortBy(!main.showSortBy)")
+      h6.main__content__header(ng-class="{'main__content__header--border-bottom': !main.showSortBy}")
+        span Sort By {{main.selectedSortBy.name}}
         i.fa.fa-caret-down(aria-hidden="true")
+        ul(ng-show="main.showSortBy")
+          li(ng-repeat="item in main.sortBy" ng-click="main.setSortBy(item)") {{item.name}}
+    .main__mask(ng-class="{'main__mask--hide': !main.showSortBy}" ng-click="main.showHideSortBy(false)")
     .main__content__grid
-      a(href="#")
-        .main__content__grid__item.col-sm-4.col-md-3(ng-repeat="item in $ctrl.items track by $index")
-          img(src="{{item}}" alt="")
+      a(ng-repeat="item in main.currItems track by $index" href="/product/{{item.id}}")
+        .main__content__grid__item.col-sm-4.col-md-3(ng-if="item.colors && item.colors.length > 0")
+          img(src="{{item.colors[0].images[0]}}" alt="")
           .main__content__grid__item__info
-            h5.main__content__grid__item__info__title Chester
-            .main__content__grid__item__info__description Burgundy Texual Goat
-            .main__content__grid__item__info__price $1000
+            h5.main__content__grid__item__info__title {{item.name}}
+            .main__content__grid__item__info__description {{item.description}}
+            .main__content__grid__item__info__price {{item.price | currency: "" : 0}} VND
+    .btn.main__content__loadmore(ng-click="main.loadMore()" ng-if="main.pagination.page * main.pagination.pageSize < main.pagination.totalHit") See More
+

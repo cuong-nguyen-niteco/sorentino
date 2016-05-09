@@ -1,35 +1,27 @@
 .nav-bar__first-line
-  .nav-bar__first-line__logo.col-sm-8
+  .nav-bar__first-line__logo
     .nav-bar__first-line__logo__img
       a(href="/")
         img(src="http://placehold.it/300x300" alt="")
     h2.nav-bar__first-line__logo__name Sorentino
     .nav-bar__first-line__logo__menu
       ul
-        li
-          a(href="/subscribe")
-            span(ng-class="{'nav-bar--active': isActive('home')}") All Bags
-        li
-          a(href="/subscribe")
-            span(ng-class="{'nav-bar--active': isActive('home')}") Collections
-        li
-          a(href="/tutorials")
-            span(ng-class="{'nav-bar--active': isActive('aboutUs')}") About
-        li
-          a(href="/brands")
-            span(ng-class="{'nav-bar--active': isActive('contactUs')}") Contact
-  h2.nav-bar__first-line__right-logo.col-sm-4 Sorentino
+        li(ng-repeat="item in nav.menu track by $index")
+          a(href="{{item.link}}")
+            span(ng-class="{'nav-bar--active': isActive(item.name)}") {{item.name}}
+          .nav-bar__sub(ng-class="{'nav-bar__sub--show': item.items && item.items.length > 0}")
+            ul(ng-if="item.items && item.items.length > 0")
+              li(ng-repeat="subItem in item.items track by $index")
+                a(href="/collection/{{subItem.id}}")
+                  span {{subItem.name}}
+  h2.nav-bar__first-line__right-logo Sorentino
 .nav-bar__second-line
   ul
-    li
-      a(href="/subscribe")
-        span(ng-class="{'nav-bar--active': isActive('home')}") All Bags
-    li
-      a(href="/subscribe")
-        span(ng-class="{'nav-bar--active': isActive('home')}") Collections
-    li
-      a(href="/tutorials")
-        span(ng-class="{'nav-bar--active': isActive('aboutUs')}") About
-    li
-      a(href="/brands")
-        span(ng-class="{'nav-bar--active': isActive('contactUs')}") Contact
+    li(ng-repeat="item in nav.menu track by $index")
+      a(href="{{item.link}}")
+        span(ng-class="{'nav-bar--active': isActive(item.name)}") {{item.name}}
+      .nav-bar__sub(ng-class="{'nav-bar__sub--show': item.items && item.items.length > 0}")
+        ul(ng-if="item.items && item.items.length > 0")
+          li(ng-repeat="subItem in item.items track by $index")
+            a(href="/collection/{{subItem.id}}")
+              span {{subItem.name}}

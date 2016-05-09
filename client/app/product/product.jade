@@ -1,2 +1,30 @@
 .product
-  p product
+  .product__main.col-xs-7
+    ng-gallery(images="prodCtrl.imageGalerry" thumbs-num="1")
+    .product__main__list
+      a(href="#" ng-repeat="item in prodCtrl.color.images track by $index" ng-click="prodCtrl.setMainImage(item)")
+        img.col-xs-2(src="{{item}}")
+  .product__info.col-xs-5
+    h2.product__info__title {{prodCtrl.product.name}}
+    p.product__info__description {{prodCtrl.product.description}}
+    p.product__info__price {{prodCtrl.product.price | currency: "" : 0}} VND
+    .product__info__color--container
+      p.product__info__color__title More Colors:
+      a.product__info__color.product__info__color--select(ng-repeat="color in prodCtrl.product.colors" ng-click="prodCtrl.changeColor(color)" ng-style="{'background-color': color.code}" href="#" ng-class="{'product__info__color--active': prodCtrl.color.code == color.code}" ng-mouseover="prodCtrl.currColorName = color.name" ng-mouseleave="prodCtrl.currColorName = prodCtrl.color.name")
+      .product__info__color__name {{prodCtrl.currColorName}}
+    hr
+    .product__info__spec
+      ul.product__info__spec__menu
+        li.product__info__spec__menu__item
+          a(href="#") Description
+        li.product__info__spec__menu__item
+          a(href="#") Details
+        li.product__info__spec__menu__item
+          a(href="#") Material
+      hr
+      .product__info__spec__description.product__info__spec__description--active
+        | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque quis ornare ipsum. Ut sed molestie diam. Mauris magna mi, pretium at purus id, pulvinar rutrum massa. Proin consequat justo ac lacus interdum, vitae scelerisque urna tincidunt. Donec ac maximus libero, et ultrices est. Curabitur quis cursus ligula, sed mattis ipsum.
+      .product__info__spec__description
+        | Sed vitae tempus massa, eget congue ligula. Mauris scelerisque egestas enim nec auctor. Ut id nisi mauris. Quisque at metus odio. Sed vestibulum nisi vel elementum ultricies. Aenean id tellus eu nunc varius vestibulum sit amet non mauris. In semper mi arcu, nec commodo ligula varius non. Etiam eu feugiat erat.
+      .product__info__spec__description
+        | Etiam elementum massa nibh, vel lacinia lorem imperdiet vel. Nam velit dolor, cursus et interdum quis, euismod mattis mi. Vivamus semper pharetra pulvinar. In ultrices arcu nunc, eu sagittis mi consectetur ut. Curabitur fringilla enim vitae ipsum ullamcorper, et laoreet augue dictum.

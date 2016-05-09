@@ -1,0 +1,21 @@
+{
+  "menu": [
+    {
+      "name": "Home",
+      "link": "/",
+      "items": []
+    },{
+      "name": "Collections",
+      "link": "/",
+      "items": []
+    },{
+      "name": "About",
+      "link": "/about",
+      "items": []
+    },{
+      "name": "Contact",
+      "link": "/contact",
+      "items": []
+    }
+  ]
+}

@@ -1,3 +1,98 @@
 .product {
   margin-top: 120px;
+  overflow: auto;
+  hr {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  &__main {
+    &__image {
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    &__list {
+
+    }
+  }
+
+  &__info {
+    &__color {
+      width: 25px;
+      height: 25px;
+      display: inline-block;
+      margin-right: 5px;
+
+      &--container {
+        margin-top: 50px;
+        margin-bottom: 25px;
+        text-align: center;
+      }
+      &__title {
+        text-transform: uppercase;
+        font-size: 12px;
+        font-weight: bold;
+      }
+
+      &__name {
+        margin-top: 10px;
+      }
+
+      &--select {
+        position: relative;
+        &::after {
+          position: absolute;
+          left: 0;
+          bottom: -5px;
+          content: ' ';
+          height: 2px;
+          width: 100%;
+          background-color: $web-text-color;
+          display: none;
+        }
+
+        &:hover {
+          &::after {
+            display: inline-block !important;
+          }
+        }
+      }
+
+      &--active {
+        &::after {
+          display: inline-block !important;
+        }
+      }
+    }
+
+    &__spec {
+      &__menu {
+        list-style: none;
+        &__item {
+          display: inline-block;
+          margin-left: 50px;
+          text-transform: uppercase;
+          font-size: 12px;
+          font-weight: bold;
+          a {
+            color: black;
+            text-decoration: none;
+          }
+        }
+      }
+
+      &__description {
+        display: none;
+        &--active {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+.ng-gallery {
+  display: none;
 }
