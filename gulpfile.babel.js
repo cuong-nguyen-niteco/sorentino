@@ -468,7 +468,7 @@ gulp.task('build', cb => {
 gulp.task('clean:dist', () => del([`${paths.dist}/!(.git*|.openshift|Procfile)**`], {dot: true}));
 
 gulp.task('build:client', ['transpile:client', 'styles', 'html', 'constant'], () => {
-    var manifest = gulp.src(`${paths.dist}/${clientPath}/assets/rev-manifest.json`);
+     var manifest = gulp.src(`${paths.dist}/${clientPath}/assets/rev-manifest.json`);
 
     var appFilter = plugins.filter('**/app.js', {restore: true});
     var jsFilter = plugins.filter('**/*.js', {restore: true});
@@ -482,8 +482,8 @@ gulp.task('build:client', ['transpile:client', 'styles', 'html', 'constant'], ()
                 .pipe(plugins.concat('app/app.js'))
             .pipe(appFilter.restore)
             .pipe(jsFilter)
-                .pipe(plugins.ngAnnotate())
-                .pipe(plugins.uglify())
+                 .pipe(plugins.ngAnnotate())
+                // .pipe(plugins.uglify())
             .pipe(jsFilter.restore)
             .pipe(cssFilter)
                 .pipe(plugins.minifyCss({
@@ -528,11 +528,11 @@ gulp.task('constant', function() {
 
 gulp.task('build:images', () => {
     return gulp.src(paths.client.images)
-        .pipe(plugins.imagemin({
-            optimizationLevel: 5,
-            progressive: true,
-            interlaced: true
-        }))
+        // .pipe(plugins.imagemin({
+        //     optimizationLevel: 5,
+        //     progressive: true,
+        //     interlaced: true
+        // }))
         // .pipe(plugins.rev())
         // .pipe(gulp.dest(`${paths.dist}/${clientPath}/assets/images`))
         // .pipe(plugins.rev.manifest(`${paths.dist}/${clientPath}/assets/rev-manifest.json`, {

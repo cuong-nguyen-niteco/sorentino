@@ -1,3 +1,4 @@
+navbar
 include ./spotlight.jade
 .main
   .main__header
@@ -12,7 +13,7 @@ include ./spotlight.jade
           li(ng-repeat="item in main.sortBy" ng-click="main.setSortBy(item)") {{item.name}}
     .main__mask(ng-class="{'main__mask--hide': !main.showSortBy}" ng-click="main.showHideSortBy(false)")
     .main__content__grid
-      a(ng-repeat="item in main.currItems track by $index" href="/product/{{item.id}}")
+      a(ng-repeat="item in main.currItems track by $index" href="/product/{{item._id}}")
         .main__content__grid__item.col-sm-4.col-md-3(ng-if="item.colors && item.colors.length > 0")
           img(src="{{item.colors[0].images[0]}}" alt="")
           .main__content__grid__item__info
@@ -20,4 +21,4 @@ include ./spotlight.jade
             .main__content__grid__item__info__description {{item.description}}
             .main__content__grid__item__info__price {{item.price | currency: "" : 0}} VND
     .btn.main__content__loadmore(ng-click="main.loadMore()" ng-if="main.pagination.page * main.pagination.pageSize < main.pagination.totalHit") See More
-
+footer

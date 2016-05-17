@@ -1,9 +1,11 @@
+navbar
 .product
   .product__main.col-xs-7
     ng-gallery(images="prodCtrl.imageGalerry" thumbs-num="1")
     .product__main__list
-      a(href="#" ng-repeat="item in prodCtrl.color.images track by $index" ng-click="prodCtrl.setMainImage(item)")
-        img.col-xs-2(src="{{item}}")
+      .row
+        a(href="#" ng-repeat="item in prodCtrl.color.images track by $index" ng-click="prodCtrl.setMainImage(item)")
+          img.col-xs-2(src="{{item}}")
   .product__info.col-xs-5
     h2.product__info__title {{prodCtrl.product.name}}
     p.product__info__description {{prodCtrl.product.description}}
@@ -15,16 +17,12 @@
     hr
     .product__info__spec
       ul.product__info__spec__menu
-        li.product__info__spec__menu__item
-          a(href="#") Description
-        li.product__info__spec__menu__item
-          a(href="#") Details
-        li.product__info__spec__menu__item
-          a(href="#") Material
+        li.product__info__spec__menu__item(ng-class="{'product__info__spec__menu__item--select' : prodCtrl.specType == 1}")
+          a(href="#" ng-click="prodCtrl.setSpec(prodCtrl.product.spec.description, 1)") Description
+        li.product__info__spec__menu__item(ng-class="{'product__info__spec__menu__item--select' : prodCtrl.specType == 2}")
+          a(href="#" ng-click="prodCtrl.setSpec(prodCtrl.product.spec.details, 2)") Details
+        li.product__info__spec__menu__item(ng-class="{'product__info__spec__menu__item--select' : prodCtrl.specType == 3}")
+          a(href="#" ng-click="prodCtrl.setSpec(prodCtrl.product.spec.material, 3)") Material
       hr
-      .product__info__spec__description.product__info__spec__description--active
-        | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque quis ornare ipsum. Ut sed molestie diam. Mauris magna mi, pretium at purus id, pulvinar rutrum massa. Proin consequat justo ac lacus interdum, vitae scelerisque urna tincidunt. Donec ac maximus libero, et ultrices est. Curabitur quis cursus ligula, sed mattis ipsum.
-      .product__info__spec__description
-        | Sed vitae tempus massa, eget congue ligula. Mauris scelerisque egestas enim nec auctor. Ut id nisi mauris. Quisque at metus odio. Sed vestibulum nisi vel elementum ultricies. Aenean id tellus eu nunc varius vestibulum sit amet non mauris. In semper mi arcu, nec commodo ligula varius non. Etiam eu feugiat erat.
-      .product__info__spec__description
-        | Etiam elementum massa nibh, vel lacinia lorem imperdiet vel. Nam velit dolor, cursus et interdum quis, euismod mattis mi. Vivamus semper pharetra pulvinar. In ultrices arcu nunc, eu sagittis mi consectetur ut. Curabitur fringilla enim vitae ipsum ullamcorper, et laoreet augue dictum.
+      .product__info__spec__description(ng-bind-html="prodCtrl.spec")
+footer

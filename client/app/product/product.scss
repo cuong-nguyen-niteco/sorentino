@@ -1,5 +1,5 @@
 .product {
-  margin-top: 120px;
+  margin-top: $page-margin-top;
   overflow: auto;
   hr {
     margin-top: 10px;
@@ -14,7 +14,10 @@
     }
 
     &__list {
-
+      margin-top: 5px;
+      img {
+        //padding: 0;
+      }
     }
   }
 
@@ -75,19 +78,23 @@
           margin-left: 50px;
           text-transform: uppercase;
           font-size: 12px;
-          font-weight: bold;
           a {
             color: black;
             text-decoration: none;
+          }
+
+          &--select {
+            font-weight: bold;
+          }
+
+          &:hover {
+            font-weight: bold;
           }
         }
       }
 
       &__description {
-        display: none;
-        &--active {
-          display: block;
-        }
+
       }
     }
   }

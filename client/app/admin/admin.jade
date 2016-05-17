@@ -1,0 +1,32 @@
+section.admin
+  .container
+    h2.admin__title All Products
+    .col-xs-2
+      include ./_sidebar.jade
+    .admin__content.col-xs-9
+      .admin__content__menu.row
+        a(href="/admin/create-edit-product")
+          .btn.btn-success Create New
+      .admin__content__table.row
+        table.table.table-bordered.table-striped
+          thead
+            tr
+              th Name
+              th Price
+              th Description
+              th Collections
+              th Colors
+              th Action
+          tbody
+            tr(ng-repeat="product in adminCtrl.products" ng-if="!product.hide")
+              td {{product.name}}
+              td {{product.price}}
+              td {{product.description}}
+              td {{product.collections}}
+              td
+                .admin__color-square(ng-repeat="color in product.colors track by $index" ng-style="{'background-color': color.code}" title="{{color.name}}")
+              td
+                button(ng-click="adminCtrl.onEdit(product)" title="Edit")
+                  span.glyphicon.glyphicon-edit.text-warning
+                button(ng-click="adminCtrl.onDelete(product)" title="Delete")
+                  span.glyphicon.glyphicon-trash.text-danger

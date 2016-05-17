@@ -34,18 +34,18 @@ class MainController {
 
     this.currItems = [];
 
-    this.$http.get('/api/constant/product').then(response => {
+    this.$http.get('/api/product/all').then(response => {
       if (this.collectionId) {
         let collectionIdTmp = this.collectionId;
         let itemsTmp = this.items;
 
-        response.data.products.forEach(function(item){
+        response.data.data.forEach(function(item){
           if (item.collections.indexOf(collectionIdTmp) != -1) {
             itemsTmp.push(item);
           }
         });
       } else {
-        this.items = response.data.products;
+        this.items = response.data.data;
       }
       this.pagination.totalHit = this.items.length;
       this.currItems = this.items.slice(0, this.pagination.page * this.pagination.pageSize);

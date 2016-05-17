@@ -14,6 +14,17 @@ var server = http.createServer(app);
 require('./config/express').default(app);
 require('./routes').default(app);
 
+var mongoose = require('mongoose');
+var mongoUri = "mongodb://sorentino:sorentino123@ds047365.mlab.com:47365/sorentino";
+// Connect mongo
+mongoose.connect(mongoUri);
+var db = mongoose.connection;
+
+db.on('error', console.error.bind(console, 'DB connection error: ' + mongoUri));
+db.once('open', function() {
+  console.log('DB connection success! ' + mongoUri);
+});
+
 // Start server
 function startServer() {
   app.angularFullstack = server.listen(config.port, config.ip, function() {

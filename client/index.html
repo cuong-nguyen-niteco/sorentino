@@ -30,9 +30,7 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <navbar></navbar>
     <div ui-view=""></div>
-    <footer></footer>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
     <script>
@@ -44,7 +42,9 @@
       ga('create', 'UA-XXXXX-X');
       ga('send', 'pageview');
     </script>
-
+    <script>
+      var CKEDITOR_BASEPATH='/bower_components/ckeditor/';
+    </script>
     <!--[if lt IE 9]>
     <script src="bower_components/es5-shim/es5-shim.js"></script>
     <script src="bower_components/json3/lib/json3.min.js"></script>
@@ -63,12 +63,16 @@
       <script src="bower_components/headroom.js/dist/jQuery.headroom.js"></script>
       <script src="bower_components/headroom.js/dist/angular.headroom.js"></script>
       <script src="bower_components/ngGallery/src/js/ngGallery.js"></script>
+      <script src="bower_components/ckeditor/ckeditor.js"></script>
+      <script src="bower_components/angular-ckeditor/angular-ckeditor.js"></script>
       <!-- endbower -->
     <!-- endbuild -->
     <!-- build:js(.tmp) app/app.js -->
       <script src="app/app.js"></script>
       <!-- injector:js -->
       <script src="components/util/util.module.js"></script>
+      <script src="app/admin/admin.controller.js"></script>
+      <script src="app/admin/create-product.controller.js"></script>
       <script src="app/app.constant.js"></script>
       <script src="app/main/main.controller.js"></script>
       <script src="app/product/product.controller.js"></script>

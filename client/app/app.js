@@ -6,7 +6,8 @@ angular.module('sorentinoApp', [
   'ngResource',
   'ngSanitize',
   'ui.router',
-  'jkuri.gallery'
+  'jkuri.gallery',
+  'ckeditor'
 ])
   .config(function($urlRouterProvider, $locationProvider, $stateProvider) {
     $urlRouterProvider
@@ -30,6 +31,19 @@ angular.module('sorentinoApp', [
         templateUrl: 'app/main/main.html',
         controller: 'MainController',
         controllerAs: 'main'
+      })
+      .state('create-edit-product', {
+        url: '/admin/create-edit-product',
+        templateUrl: 'app/admin/create-product.html',
+        controller: 'CreateProductController',
+        controllerAs: 'adminCtrl',
+        params: {product: {}}
+      })
+      .state('admin', {
+        url: '/admin',
+        templateUrl: 'app/admin/admin.html',
+        controller: 'AdminController',
+        controllerAs: 'adminCtrl'
       })
     ;
 
