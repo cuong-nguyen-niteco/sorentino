@@ -2,7 +2,6 @@
   padding-bottom: 70px;
   .btn{
     margin-top: 20px;
-    float: right;
   }
 
   label {
@@ -91,6 +90,18 @@
 
     button {
       margin-left: 5px;
+    }
+  }
+
+  &__about-us {
+    &__title {
+
+    }
+
+    &__preview {
+      font-family: $font-time-roman;
+      margin-bottom: 25px;
+      padding: 15px;
     }
   }
 }

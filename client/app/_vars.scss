@@ -31,19 +31,21 @@ $screen-xs-max:              ($screen-sm-min - 1) !default;
 $screen-sm-max:              ($screen-md-min - 1) !default;
 $screen-md-max:              ($screen-lg-min - 1) !default;
 
+$web-color: rgb(15,56,15);
+$menu-bg-color: rgb(213,242,207);
+$menu-bg-color-op: rgba(213,242,207, 0.5);
+$web-color-op: rgba(15,56,15,0.7);
+$web-color-lg-op: rgba(15,56,15,0.5);
+$web-text-color: rgb(0,0,0);
+
+$page-margin-top: 120px;
+
+
 body {
   font-family: $font-avenir;
 }
 
 h1,h2,h3,h4,h5,h6 {
   font-family: $font-bembo;
+  color: $web-text-color;
 }
-
-$web-color: rgb(15,56,15);
-$menu-bg-color: rgb(213,242,207);
-$menu-bg-color-op: rgba(213,242,207, 0.5);
-$web-color-op: rgba(15,56,15,0.7);
-$web-color-lg-op: rgba(15,56,15,0.5);
-$web-text-color: rgb(51,51,51);
-
-$page-margin-top: 120px;

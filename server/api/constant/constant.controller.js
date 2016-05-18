@@ -17,7 +17,7 @@ var constant = JSON.parse(fs.readFileSync(CONSTANT_FILE, 'utf8'));
 var product = JSON.parse(fs.readFileSync(PRODUCT_FILE, 'utf8'));
 var collection = JSON.parse(fs.readFileSync(COLLECTION_FILE, 'utf8'));
 
-export function getMenu(req, res) {
+export function getConstant(req, res) {
   res.json(constant);
 }
 

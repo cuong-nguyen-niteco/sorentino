@@ -17,10 +17,13 @@ $fa-font-path: "../bower_components/font-awesome/fonts";
 /* inject:scss */
 @import 'fonts';
 @import 'vars';
+@import 'about-us/about-us';
 @import 'admin/sidebar';
 @import 'admin/admin';
+@import 'contact-us/contact-us';
 @import 'main/spotlight';
 @import 'main/main';
+@import 'mixins/common-grid/common-grid';
 @import 'product/product';
 @import '../components/footer/footer';
 @import '../components/navbar/navbar';

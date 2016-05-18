@@ -20,7 +20,8 @@ var ProductSchema = mongoose.Schema({
     description: String,
     details: String,
     material: String
-  }
+  },
+  priority: {type: Number, default: 0}
 });
 
 export default mongoose.model('Product', ProductSchema);

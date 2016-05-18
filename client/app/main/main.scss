@@ -1,7 +1,7 @@
 .main {
   overflow: auto;
   &__header {
-    padding: 10px 0;
+    padding: 10px 15px;
     text-align: center;
     &__title {
 
@@ -71,15 +71,16 @@
       &__item {
         position: relative;
         padding: 0;
-        border: 1px solid black;
 
-        &:hover {
-          border: 2px solid black;
-          img {
-            opacity: 0.5;
-          }
-          .main__content__grid__item__info {
-            display: inline-block;
+        @media (min-width: $screen-phone) {
+          &:hover {
+            border: 2px solid black;
+            img {
+              opacity: 0.5;
+            }
+            .main__content__grid__item__info {
+              display: inline-block;
+            }
           }
         }
 
@@ -101,6 +102,23 @@
 
           &__description {
 
+          }
+
+          &__price {
+
+          }
+        }
+
+        &__info-mobile {
+          display: block;
+          text-align: center;
+          margin-bottom: 5px;
+          @media (min-width: $screen-phone) {
+            display: none;
+          }
+
+          &__title {
+            font-family: $font-avenir-black;
           }
 
           &__price {

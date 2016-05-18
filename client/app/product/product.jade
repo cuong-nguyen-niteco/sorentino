@@ -1,15 +1,16 @@
+include ../mixins/common-grid/_common-grid.jade
 navbar
 .product
-  .product__main.col-xs-7
+  .product__main.col-sm-7
     ng-gallery(images="prodCtrl.imageGalerry" thumbs-num="1")
     .product__main__list
       .row
         a(href="#" ng-repeat="item in prodCtrl.color.images track by $index" ng-click="prodCtrl.setMainImage(item)")
           img.col-xs-2(src="{{item}}")
-  .product__info.col-xs-5
+  .product__info.col-sm-5
     h2.product__info__title {{prodCtrl.product.name}}
-    p.product__info__description {{prodCtrl.product.description}}
-    p.product__info__price {{prodCtrl.product.price | currency: "" : 0}} VND
+    p.product__info__title {{prodCtrl.product.description}}
+    p.product__info__title {{prodCtrl.product.price | currency: "" : 0}} VND
     .product__info__color--container
       p.product__info__color__title More Colors:
       a.product__info__color.product__info__color--select(ng-repeat="color in prodCtrl.product.colors" ng-click="prodCtrl.changeColor(color)" ng-style="{'background-color': color.code}" href="#" ng-class="{'product__info__color--active': prodCtrl.color.code == color.code}" ng-mouseover="prodCtrl.currColorName = color.name" ng-mouseleave="prodCtrl.currColorName = prodCtrl.color.name")
@@ -25,4 +26,9 @@ navbar
           a(href="#" ng-click="prodCtrl.setSpec(prodCtrl.product.spec.material, 3)") Material
       hr
       .product__info__spec__description(ng-bind-html="prodCtrl.spec")
+  .col-xs-12
+    .grid-container
+      -
+        items = [{title: 'Title something', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', img: 'http://placehold.it/600x250?text=Logo', color: '#154867'}, {title: 'Title something', description: 'Lorem ipsum dolor sit amet', img: 'http://placehold.it/600x250?text=Logo', color: '#49201C'}]
+      +commondGrid(items, "customClass", true)
 footer

@@ -7,6 +7,8 @@ class MainController {
     this.showSortBy = false;
     this.$http = $http;
     this.selectedSortBy = {id: -1, name: ""};
+    this.banner = "";
+    this.description = "";
 
     this.collectionId = parseInt($stateParams.id);
     this.collection = {id:-1, name:"All Bags"};
@@ -28,7 +30,7 @@ class MainController {
     this.items = [];
     this.pagination = {
       page : 1,
-      pageSize: 8,
+      pageSize: 48,
       totalHit: 0
     };
 
@@ -48,6 +50,9 @@ class MainController {
         this.items = response.data.data;
       }
       this.pagination.totalHit = this.items.length;
+      this.items.sort(function(a, b) {
+        return a.priority - b.priority;
+      });
       this.currItems = this.items.slice(0, this.pagination.page * this.pagination.pageSize);
     });
 
@@ -66,6 +71,10 @@ class MainController {
       }
     });
 
+    this.$http.get('/api/constant').then(response => {
+      this.banner = response.data.home.banner;
+      this.description = response.data.home.description;
+    })
   }
 
   showHideSortBy(show) {

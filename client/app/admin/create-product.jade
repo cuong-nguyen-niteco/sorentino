@@ -1,29 +1,32 @@
 .product-form
   .container
-    h2.admin__title Create New Product
+    h2.admin__title {{cpCtrl.title}} Product
     .col-xs-2
       include ./_sidebar.jade
     form.col-xs-10
       .form-group
         label Name
-        input.form-control(required ng-model="adminCtrl.product.name")
+        input.form-control(required ng-model="cpCtrl.product.name")
       .form-group
         label Price
-        input.form-control(type="number" required placeholder="" ng-model="adminCtrl.product.price")
+        input.form-control(type="number" required placeholder="" ng-model="cpCtrl.product.price")
       .form-group
         label Description
-        input.form-control(required placeholder="" ng-model="adminCtrl.product.description")
+        input.form-control(required placeholder="" ng-model="cpCtrl.product.description")
+      .form-group
+        label Priority
+        input.form-control(type="number" required placeholder="" ng-model="cpCtrl.product.priority")
       .form-group
         label.product-form--block Collections
-        .product-form__checkbox(ng-repeat="item in adminCtrl.collections track by $index")
+        .product-form__checkbox(ng-repeat="item in cpCtrl.collections track by $index")
           label.checkbox-inline {{item.name}}
-            input(type="checkbox" ng-model="adminCtrl.collectionModel[item.id]" ng-true-value="{{item.id}}")
+            input(type="checkbox" ng-model="cpCtrl.collectionModel[item.id]" ng-true-value="{{item.id}}")
       .form-group
         label Colors
         .product-form__buttons
-          button(ng-click="adminCtrl.addColor()")
+          button(ng-click="cpCtrl.addColor()")
             span.glyphicon.glyphicon-plus.text-success Add
-          span.product-form__buttons--right Image Root: <strong>{{adminCtrl.imageRoot}}</strong>
+          span.product-form__buttons--right Image Root: <strong>{{cpCtrl.imageRoot}}</strong>
         table.table.table-striped.table-bordered
           thead
             tr
@@ -32,39 +35,39 @@
               th.col-md-5 Images
               th.col-md-2
           tbody
-            tr(ng-repeat="color in adminCtrl.colors track by $index" ng-include="adminCtrl.getTemplate(color)")
+            tr(ng-repeat="color in cpCtrl.colors track by $index" ng-include="cpCtrl.getTemplate(color)")
       .form-group
         label Specifications
         .product-form__sub-label
           label Description
-          a(href="#" ng-click="adminCtrl.specDescShow = !adminCtrl.specDescShow;") {{adminCtrl.specDescShow ? "Hide" : "Show"}}
-        div(ng-show="adminCtrl.specDescShow")
-          .form-control(ckeditor="adminCtrl.editorOptions" ng-model="adminCtrl.specDesc")
+          a(href="#" ng-click="cpCtrl.specDescShow = !cpCtrl.specDescShow;") {{cpCtrl.specDescShow ? "Hide" : "Show"}}
+        div(ng-show="cpCtrl.specDescShow")
+          .form-control(ckeditor="cpCtrl.editorOptions" ng-model="cpCtrl.specDesc")
         .product-form__sub-label
           label Details
-          a(href="#" ng-click="adminCtrl.specDetailShow = !adminCtrl.specDetailShow;") {{adminCtrl.specDetailShow ? "Hide" : "Show"}}
-        div(ng-show="adminCtrl.specDetailShow")
-          .form-control(ckeditor="adminCtrl.editorOptions" ng-model="adminCtrl.specDetail")
+          a(href="#" ng-click="cpCtrl.specDetailShow = !cpCtrl.specDetailShow;") {{cpCtrl.specDetailShow ? "Hide" : "Show"}}
+        div(ng-show="cpCtrl.specDetailShow")
+          .form-control(ckeditor="cpCtrl.editorOptions" ng-model="cpCtrl.specDetail")
         .product-form__sub-label
           label Material
-          a(href="#" ng-click="adminCtrl.specMatShow = !adminCtrl.specMatShow;") {{adminCtrl.specMatShow ? "Hide" : "Show"}}
-        div(ng-show="adminCtrl.specMatShow")
-          .form-control(ckeditor="adminCtrl.editorOptions" ng-model="adminCtrl.specMat")
+          a(href="#" ng-click="cpCtrl.specMatShow = !cpCtrl.specMatShow;") {{cpCtrl.specMatShow ? "Hide" : "Show"}}
+        div(ng-show="cpCtrl.specMatShow")
+          .form-control(ckeditor="cpCtrl.editorOptions" ng-model="cpCtrl.specMat")
       .form-group
-        button.btn.btn-primary(type="submit" ng-click="adminCtrl.submitProduct()") Submit
+        button.btn.btn-primary(type="submit" ng-click="cpCtrl.submitProduct()") Submit
 script#display(type='text/ng-template').
   <td>{{color.name}}</td>
   <td>{{color.code}}<div class="product-form__square" ng-style="{'background-color' : color.code}"></div></td>
   <td>{{color.imageDisplay}}</td>
   <td>
-    <button ng-click="adminCtrl.editColor(color)"><span class="glyphicon glyphicon-edit text-warning"></span></button>
-    <button ng-click="adminCtrl.deleteColor(color)"><span class="glyphicon glyphicon-trash text-danger"></span></button>
+    <button ng-click="cpCtrl.editColor(color)"><span class="glyphicon glyphicon-edit text-warning"></span></button>
+    <button ng-click="cpCtrl.deleteColor(color)"><span class="glyphicon glyphicon-trash text-danger"></span></button>
   </td>
 script#edit(type='text/ng-template').
-  <td><input type="text" ng-model="adminCtrl.selectedColor.name" /></td>
-  <td><input type="text" ng-model="adminCtrl.selectedColor.code" /></td>
-  <td><input type="text" ng-model="adminCtrl.selectedColor.imageDisplay" /></td>
+  <td><input type="text" ng-model="cpCtrl.selectedColor.name" /></td>
+  <td><input type="text" ng-model="cpCtrl.selectedColor.code" /></td>
+  <td><input type="text" ng-model="cpCtrl.selectedColor.imageDisplay" /></td>
   <td>
-    <button ng-click="adminCtrl.saveColor($index)"><span class="glyphicon glyphicon-ok text-success"></span></button>
-    <button ng-click="adminCtrl.reset()"><span class="glyphicon glyphicon-remove text-danger"></span></button>
+    <button ng-click="cpCtrl.saveColor($index)"><span class="glyphicon glyphicon-ok text-success"></span></button>
+    <button ng-click="cpCtrl.reset()"><span class="glyphicon glyphicon-remove text-danger"></span></button>
   </td>

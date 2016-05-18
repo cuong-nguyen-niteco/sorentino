@@ -1,0 +1,12 @@
+.contact-us {
+  margin-top: $page-margin-top + 2px;
+  padding-top: 15px;
+
+  &__title {
+    text-align: center;
+  }
+
+  &__content {
+    font-family: $font-time-roman;
+  }
+}

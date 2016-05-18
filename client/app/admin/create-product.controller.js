@@ -25,6 +25,7 @@
 
       this.isEditingMode = !!$stateParams.product;
       this.product = this.isEditingMode ? $stateParams.product : {};
+      this.title = this.isEditingMode ? "Update" : "Create New";
       this.collectionModel = {};
       this.collections = [];
       this.colors = [];

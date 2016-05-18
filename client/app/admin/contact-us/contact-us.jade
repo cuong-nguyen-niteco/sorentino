@@ -1,0 +1,15 @@
+.container
+  .row
+    h2.admin__title Change Contact Us
+    .col-xs-2
+      include ../_sidebar
+    .col-sm-10
+      .form-group
+        .form-control(ckeditor="cuaCtrl.editorOptions" ng-model="cuaCtrl.contactUs.value")
+      .form-group.admin__about-us
+        h3.admin__about-us__title Preview
+        .admin__about-us__preview(ng-bind-html="cuaCtrl.contactUs.value")
+      .form-group
+        hr
+        p.help-block {{cuaCtrl.message}}
+        .btn.btn-primary(ng-click="cuaCtrl.submit()") Submit

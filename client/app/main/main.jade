@@ -3,7 +3,7 @@ include ./spotlight.jade
 .main
   .main__header
     h2.main__header__title {{main.collection.name}}
-    .main__header__description What's your style? Find your perfect bag from our selection of shoulder bags, satchels, totes and more.
+    .main__header__description {{main.description}}
   .main__content
     a(href="#" ng-click="main.showHideSortBy(!main.showSortBy)")
       h6.main__content__header(ng-class="{'main__content__header--border-bottom': !main.showSortBy}")
@@ -14,11 +14,14 @@ include ./spotlight.jade
     .main__mask(ng-class="{'main__mask--hide': !main.showSortBy}" ng-click="main.showHideSortBy(false)")
     .main__content__grid
       a(ng-repeat="item in main.currItems track by $index" href="/product/{{item._id}}")
-        .main__content__grid__item.col-sm-4.col-md-3(ng-if="item.colors && item.colors.length > 0")
+        .main__content__grid__item.col-xs-6.col-sm-4(ng-if="item.colors && item.colors.length > 0")
           img(src="{{item.colors[0].images[0]}}" alt="")
           .main__content__grid__item__info
             h5.main__content__grid__item__info__title {{item.name}}
             .main__content__grid__item__info__description {{item.description}}
             .main__content__grid__item__info__price {{item.price | currency: "" : 0}} VND
+          .main__content__grid__item__info-mobile
+            h5.main__content__grid__item__info-mobile__title {{item.name}}
+            .main__content__grid__item__info-mobile__price {{item.price | currency: "" : 0}} VND
     .btn.main__content__loadmore(ng-click="main.loadMore()" ng-if="main.pagination.page * main.pagination.pageSize < main.pagination.totalHit") See More
 footer

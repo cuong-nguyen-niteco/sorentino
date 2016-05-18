@@ -7,18 +7,27 @@ class NavbarController {
   }
 
   $onInit() {
-    this.$http.get('/api/constant/menu').then(response => {
+    this.$http.get('/api/constant').then(response => {
       this.menu = response.data.menu;
       this.$http.get('/api/constant/collection').then(response => {
-        for(let i=0; i<this.menu.length; i++) {
-          if (this.menu[i].name.toLowerCase() === "collections") {
-            this.menu[i].items = response.data.collections;
+        for(let i=0; i<this.menu.left.length; i++) {
+          if (this.menu.left[i].name.toLowerCase() === "collections") {
+            this.menu.left[i].items = response.data.collections;
+            break;
+          }
+        }
+
+        for(let i=0; i<this.menu.right.length; i++) {
+          if (this.menu.right[i].name.toLowerCase() === "collections") {
+            this.menu.right[i].items = response.data.collections;
             break;
           }
         }
       });
     });
+  }
 
+  isAcvite(name) {
 
   }
 }

@@ -10,7 +10,12 @@
       this.$state = $state;
 
       this.$http.get('/api/product/all').then(response => {
-        this.products = response.data.data;
+        let temp = response.data.data;
+        temp.sort(function(a, b) {
+          return a.priority - b.priority;
+        });
+
+        this.products = temp;
       });
     }
 
@@ -25,6 +30,10 @@
 
     onEdit(product){
       this.$state.go("create-edit-product", {product: product});
+    }
+
+    onCreate(){
+      this.$state.go("create-edit-product", {product: null});
     }
   }
 

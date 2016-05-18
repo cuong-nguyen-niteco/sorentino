@@ -1,5 +1,5 @@
 .product {
-  margin-top: $page-margin-top;
+  margin-top: $page-margin-top + 2px;
   overflow: auto;
   hr {
     margin-top: 10px;
@@ -19,9 +19,32 @@
         //padding: 0;
       }
     }
+
+    .ng-gallery-content>img.effect {
+      animation: fadeIn 1s;
+    }
+
+    .ng-gallery-content>img {
+      max-height: calc(100% - 25px);
+    }
+
+    .ng-gallery-content > span.info-text {
+      display: none;
+    }
   }
 
   &__info {
+    padding-top: 25px;
+    @media (min-width: $screen-tablet) {
+      padding-top: 0;
+    }
+    &__title {
+      text-align: center;
+      @media (min-width: $screen-tablet) {
+        text-align: left;
+      }
+    }
+
     &__color {
       width: 25px;
       height: 25px;
@@ -94,7 +117,7 @@
       }
 
       &__description {
-
+        font-family: $font-time-roman;
       }
     }
   }

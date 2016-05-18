@@ -4,7 +4,7 @@
  */
 
 'use strict';
-import Product from './Product.model'
+import Product from './product.model'
 /**
 
  * @param req
@@ -24,7 +24,8 @@ export function addProduct(req, res) {
     description: req.body.description,
     collections: req.body.collections,
     colors: req.body.colors,
-    spec: req.body.spec
+    spec: req.body.spec,
+    priority: req.body.priority
   };
   Product.create(product, function(err,data) {
     return res.json({err,data});

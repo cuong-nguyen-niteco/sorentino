@@ -1,22 +1,30 @@
 {
-  "menu": [
-    {
-      "name": "Home",
-      "link": "/",
-      "items": []
-    },{
-      "name": "Collections",
-      "link": "/",
-      "items": []
-    },{
-      "name": "About",
-      "link": "/about",
-      "items": []
-    },{
-      "name": "Contact",
-      "link": "/contact",
-      "items": []
-    }
-  ],
-  "homeBanner" : "/assets/images/main/banner.png"
+  "menu": {
+    "left": [
+      {
+        "name": "Home",
+        "link": "/",
+        "items": []
+      },{
+        "name": "Collections",
+        "link": "/",
+        "items": []
+      }
+    ],
+    "right": [
+      {
+        "name": "About",
+        "link": "/about-us",
+        "items": []
+      },{
+        "name": "Contact",
+        "link": "/contact-us",
+        "items": []
+      }
+    ]
+  },
+  "home" : {
+    "banner" : "/assets/images/main/banner.jpg",
+    "description": "What's your style? Find your perfect bag from our selection of shoulder bags, satchels, totes and more."
+  }
 }
