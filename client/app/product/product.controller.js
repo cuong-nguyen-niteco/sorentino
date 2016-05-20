@@ -10,6 +10,7 @@ class ProductController {
     this.product = {};
     this.color = {};
     this.currColorName = "";
+    this.banners = [];
 
     this.mainImage = "";
     this.mainImageIndex = -1;
@@ -23,6 +24,10 @@ class ProductController {
       this.spec = this.product.spec.description;
       this.specType = 1;
    });
+
+    this.$http.get('/api/constant').then(response => {
+      this.banners = response.data.banners;
+    })
   }
 
   changeColor(color) {

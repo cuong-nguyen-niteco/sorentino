@@ -134,8 +134,10 @@
 
             &:hover{
               .nav-bar__sub {
-                display: block;
+                //display: block;
                 //border: 1px solid;
+                visibility: visible;
+                opacity: 1;
               }
               .nav-bar__hr {
                 display: block;
@@ -219,8 +221,10 @@
 
         &:hover{
           .nav-bar__sub {
-            display: block;
+            //display: block;
             //border: 1px solid;
+            visibility: visible;
+            opacity: 1;
           }
           .nav-bar__hr {
             display: block;
@@ -270,9 +274,12 @@
 
   &__sub {
     position: absolute;
-    display: none;
+    //display: none;
     background-color: rgb(255, 255, 255);
     width: 150px;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.25s ease-in-out;
     &--show {
       padding: 5px;
       border: 1px solid;

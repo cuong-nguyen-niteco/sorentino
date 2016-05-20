@@ -19,7 +19,7 @@ section.admin
               th Priority
               th Action
           tbody
-            tr(ng-repeat="product in adminCtrl.products" ng-if="!product.hide")
+            tr.ani-repeat(ng-repeat="product in adminCtrl.products" ng-if="!product.hide")
               td <strong>{{product.name}}</strong>
               td {{product.price}}
               td {{product.description}}

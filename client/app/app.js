@@ -10,7 +10,8 @@ angular.module('sorentinoApp', [
   'ui.router',
   'validation.match',
   'jkuri.gallery',
-  'ckeditor'
+  'ckeditor',
+  'ngAnimate'
 ])
   .config(function($urlRouterProvider, $locationProvider, $stateProvider) {
     $urlRouterProvider

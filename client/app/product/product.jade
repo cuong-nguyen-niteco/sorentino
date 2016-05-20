@@ -5,7 +5,7 @@ navbar
     ng-gallery(images="prodCtrl.imageGalerry" thumbs-num="1")
     .product__main__list
       .row
-        a(href="#" ng-repeat="item in prodCtrl.color.images track by $index" ng-click="prodCtrl.setMainImage(item)")
+        a.ani-repeat(href="#" ng-repeat="item in prodCtrl.color.images track by $index" ng-click="prodCtrl.setMainImage(item)")
           img.col-xs-2(src="{{item}}")
   .product__info.col-sm-5
     h2.product__info__title {{prodCtrl.product.name}}
@@ -28,7 +28,13 @@ navbar
       .product__info__spec__description(ng-bind-html="prodCtrl.spec")
   .col-xs-12
     .grid-container
-      -
-        items = [{title: 'Title something', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', img: 'http://placehold.it/600x250?text=Logo', color: '#154867'}, {title: 'Title something', description: 'Lorem ipsum dolor sit amet', img: 'http://placehold.it/600x250?text=Logo', color: '#49201C'}]
-      +commondGrid(items, "customClass", true)
+      section.two-grid
+        .container-fluid
+          .row.two-grid__row.ani-repeat(ng-repeat="banner in prodCtrl.banners" ng-style="{'background': banner.color}")
+            .two-grid__cell.two-grid__cell--text.col-xs-12.col-sm-6.col-md-6.col-lg-6.no-gutter
+              p.two-grid__cell-body
+                h1.two-grid__cell-body__title {{banner.title}}
+                a.two-grid__cell-body__link(href="{{banner.link}}") View Bags
+            .two-grid__cell.two-grid__cell--image.two-grid__cell--image-right.col-xs-12.col-sm-6.col-md-6.col-lg-6.no-gutter
+              img(alt="" ng-src="{{banner.image}}")
 footer

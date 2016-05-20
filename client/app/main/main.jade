@@ -13,7 +13,7 @@ include ./spotlight.jade
           li(ng-repeat="item in main.sortBy" ng-click="main.setSortBy(item)") {{item.name}}
     .main__mask(ng-class="{'main__mask--hide': !main.showSortBy}" ng-click="main.showHideSortBy(false)")
     .main__content__grid
-      a(ng-repeat="item in main.currItems track by $index" href="/product/{{item._id}}")
+      a.ani-repeat(ng-repeat="item in main.currItems track by $index" href="/product/{{item._id}}")
         .main__content__grid__item.col-xs-6.col-sm-4(ng-if="item.colors && item.colors.length > 0")
           img(src="{{item.colors[0].images[0]}}" alt="")
           .main__content__grid__item__info
